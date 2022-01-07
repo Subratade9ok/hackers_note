@@ -1,0 +1,12 @@
+finding the devices connected using netdiscover :
+
+cmd : netdiscover -r [192.168.1.1/24]      // '-r' for range and then enter first_ip and subnet
+
+using nmap for gathering info :
+intense scan : nmap -T4 -A -v [192.168.1.1/24]  // specify first_ip and subnet will show information about device
+ping scan : namp -sn [192.168.1.1/24]     //specify first_ip and subnet will show device type
+
+quick scan : nmap -T4 -F [192.168.1.1/24]   // will show the open ports and services
+
+quick scan plus : nmap -sV -T4 -O -F --version-light [192.168.1.1/24]     // slow but show more information
+

